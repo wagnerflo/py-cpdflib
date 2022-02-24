@@ -1,0 +1,41 @@
+// -*- mode: c -*-
+typedef ... PDF;
+
+PDF* PDF_new(void);
+void PDF_delete(PDF*);
+
+void PDF_set_option(PDF*, const char*);
+int PDF_get_errnum(PDF*);
+const char* PDF_get_errmsg(PDF*);
+
+void PDF_create_pvf(PDF*, const char*, int, const void*, size_t, const char*);
+int PDF_delete_pvf(PDF*, const char*, int);
+
+int PDF_begin_document(PDF*, const char*, int, const char*);
+int _PDF_end_document(PDF*, const char*);
+
+void PDF_set_info(PDF*, const char*, const char*);
+int PDF_create_bookmark(PDF*, const char*, int, const char*);
+
+void PDF_begin_page_ext(PDF*, double, double, const char*);
+void PDF_end_page_ext(PDF*, const char*);
+
+int PDF_load_image(PDF*, const char*, const char*, int, const char*);
+void PDF_fit_image(PDF*, int, double, double, const char*);
+void PDF_close_image(PDF*, int);
+
+int PDF_load_font(PDF*, const char*, int, const char*, const char*);
+void PDF_close_font(PDF*, int);
+
+void PDF_setfont(PDF*, int, double);
+void PDF_set_text_option(PDF*, const char*);
+void PDF_fit_textline(PDF*, const char*, int, double, double, const char*);
+
+int PDF_open_pdi_document(PDF*, const char*, int, const char*);
+void PDF_close_pdi_document(PDF*, int);
+
+int PDF_open_pdi_page(PDF*, int, int, const char*);
+void PDF_close_pdi_page(PDF*, int);
+
+void PDF_fit_pdi_page(PDF*, int, double, double, const char*);
+double PDF_info_pdi_page(PDF*, int, const char*, const char*);
