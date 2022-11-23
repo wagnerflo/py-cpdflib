@@ -7,7 +7,7 @@ pdflibdir = Path(environ["PDFLIB_DIR"]) / "bind" / "c"
 
 ffibuilder = FFI()
 ffibuilder.set_source(
-    "pdflib._pdflib",
+    "cpdflib._pdflib",
     (curdir / "source.c").read_text(),
     libraries=[ "pdf", "stdc++" ],
     include_dirs=[ str(pdflibdir / "include") ],
